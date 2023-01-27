@@ -1,0 +1,17 @@
+Given the root of a binary tree, return the postorder traversal of its nodes' values.
+
+solution:
+
+class Solution {
+     public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        postord(root,list);
+        return list;
+        }
+        public void postord(TreeNode root,List<Integer> list){
+        if(root!=null){
+        postord(root.left,list);
+        postord(root.right,list);
+        list.add(root.val);
+    }}
+}
