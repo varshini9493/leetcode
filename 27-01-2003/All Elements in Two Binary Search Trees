@@ -1,0 +1,24 @@
+Given two binary search trees root1 and root2, return a list containing all the integers from both trees sorted in ascending order.
+
+ solution:
+ 
+ class Solution {
+    public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
+        inord(root1,res1);
+        inord(root2,res2);
+        for(int i=0;i<res2.size();i++){
+            res1.add(res2.get(i));
+        }
+        Collections.sort(res1);
+        return res1;
+    }
+    List<Integer> res1 = new ArrayList<>();
+    List<Integer> res2 = new ArrayList<>();
+    public void inord(TreeNode root,List<Integer> res){
+        if(root!=null){
+            inord(root.left,res);
+            res.add(root.val);
+            inord(root.right,res);
+        }
+    }
+}
